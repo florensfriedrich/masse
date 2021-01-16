@@ -68,7 +68,7 @@
 }
 @keyframes block {
   0% {
-    left: 1600px;
+    left: 2000px;
   }
   100% {
     left: -20px;
