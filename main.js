@@ -25,6 +25,7 @@ let checkDead = setInterval(function () {
       () => alert("Totaler Absturz. Score: " + Math.floor(counter / 100)),
       100
     );
+  counter = 0;
   } else {
     counter++;
     document.getElementById("ScoreSpan").innerHTML = Math.floor(counter / 100);
