@@ -1,5 +1,6 @@
 let character = document.getElementById("character");
 let block = document.getElementById("block");
+let counter = 0;
 function jump() {
   if (character.classList != "animate") {
     character.classList.add("animate");
@@ -17,11 +18,17 @@ let checkDead = setInterval(function () {
     window.getComputedStyle(block).getPropertyValue("left")
   );
   if (blockLeft < 200 && blockLeft > 0 && characterTop >= 300) {
-    let death = new Audio((URL = "death.mp3"));
-    death.play();
-    death.volume = 0.4;
     block.style.animation = "none";
     block.style.display = "none";
+    playDeath();
+    setTimeout(
+      () => alert("Totaler Absturz. Score: " + Math.floor(counter / 100)),
+      100
+    );
+    counter = 0;
+  } else {
+    counter++;
+    document.getElementById("ScoreSpan").innerHTML = Math.floor(counter / 100);
   }
 }, 10);
 function refresh() {
@@ -35,4 +42,10 @@ function play() {
   let audio = new Audio((URL = "jump.mp3"));
   audio.play();
   audio.volume = 0.4;
+}
+
+function playDeath() {
+  let death = new Audio((URL = "death.mp3"));
+  death.play();
+  death.volume = 0.4;
 }
