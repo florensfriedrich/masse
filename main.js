@@ -22,7 +22,7 @@ let checkDead = setInterval(function () {
     block.style.display = "none";
     playDeath();
     setTimeout(
-      () => counter = 0, alert("Totaler Absturz. Score: " + Math.floor(counter / 100)),
+      () => alert("Totaler Absturz. Score: " + Math.floor(counter / 100)),
       100
     );
   } else {
