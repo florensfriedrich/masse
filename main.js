@@ -22,7 +22,7 @@ let checkDead = setInterval(function () {
     block.style.display = "none";
     playDeath();
     setTimeout(
-      () => (alert("Totaler Absturz. Score: " + Math.floor(counter / 100)), (counter = 0)),
+      () => (notification(), (counter = 0)),
       100
     );
   } else {
@@ -47,4 +47,13 @@ function playDeath() {
   let death = new Audio((URL = "death.mp3"));
   death.play();
   death.volume = 0.4;
+}
+function notification() {
+  if (
+    confirm(
+      "Totaler Absturz. \nScore: " + Math.floor(counter / 100) + "\nRETRY?"
+    ) === true
+  ) {
+    window.location.reload();
+  }
 }
